@@ -9,7 +9,7 @@ def crear_modelo_unet():
     return Unet(
         dim=64,
         dim_mults=(1, 2, 4, 8),
-        flash_attn=False
+        flash_attn=True
     )
 
 # Configuración de la difusión
@@ -65,7 +65,7 @@ def main():
     # model_path = '/content/drive/MyDrive/trained_diffusion_model_png.pth'
     # output_dir = '/content/drive/MyDrive/Colab_Notebooks/SynteticImageAnalysis/DDPM_results_png'
     dataset_path = Path('/Neuronal/bedroom_dataset_preprocesado256')
-    model_path = '/home/claramingyue/DDPM/modelo_jpg'
+    model_path = '/home/claramingyue/DDPM/modelo_jpg/trained_jpg_model.pth'
     #output_dir = '/home/claramingyue/DDPM/SynteticImageAnalysis/DDPM_results_png'
 
     # Verificar si la carpeta del dataset existe
@@ -85,7 +85,7 @@ def main():
         train_num_steps=10000,
         gradient_accumulate_every=2,
         ema_decay=0.995,
-        amp=True,
+        amp=False,
         calculate_fid=False
     )
     
