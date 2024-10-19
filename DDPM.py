@@ -9,7 +9,7 @@ def crear_modelo_unet():
     return Unet(
         dim=64,
         dim_mults=(1, 2, 4, 8),
-        flash_attn=True
+        flash_attn=False
     )
 
 # Configuración de la difusión
